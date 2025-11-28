@@ -1,4 +1,4 @@
-package src.containers;
+package containers;
 
 public class SparseSet<T> {
     private T[] dense;
