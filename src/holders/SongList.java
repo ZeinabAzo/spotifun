@@ -47,4 +47,21 @@ public class SongList {
         songsByName.remove(song.getName());
         songsById.remove(id);
     }
+
+    public boolean contains(int id, String word){
+        Song song = songsById.get(id);
+        return song.getLyrics().contains(word);
+    }
+
+    public int countWord(int id, String word){
+        String lyrics = songsById.get(id).getLyrics();
+        int count = 0;
+
+        for (String s : lyrics.split("\\s+")) {
+            if (s.equals(word)) {
+                count++;
+            }
+        }
+        return count;
+    }
 }
