@@ -12,4 +12,28 @@ public class Artist {
         this.id = id;
         songList = new SongList();
     }
+
+    public SongList getSongList() {
+        return songList;
+    }
+
+    public void setSongList(SongList songList) {
+        this.songList = songList;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 }
