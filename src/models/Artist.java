@@ -1,6 +1,6 @@
 package models;
 
-import containers.SongList;
+import holders.SongList;
 
 public class Artist {
     private int id;
