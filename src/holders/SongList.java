@@ -3,6 +3,8 @@ package holders;
 import containers.AVLTree;
 import models.Song;
 
+import java.util.Arrays;
+
 public class SongList {
     AVLTree<Integer, Song> songsById;
     AVLTree<String, Song> songsByName;
@@ -55,13 +57,11 @@ public class SongList {
 
     public int countWord(int id, String word){
         String lyrics = songsById.get(id).getLyrics();
-        int count = 0;
+        long count = Arrays.stream(lyrics.split("\\s+"))
+                .filter(s -> s.equalsIgnoreCase(word))
+                .count();
 
-        for (String s : lyrics.split("\\s+")) {
-            if (s.equals(word)) {
-                count++;
-            }
-        }
-        return count;
+        return (int) count;
+
     }
 }
