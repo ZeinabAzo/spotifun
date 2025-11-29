@@ -36,4 +36,9 @@ public class SongList {
     public Song findById(int id){
         return songsById.get(id);
     }
+
+    public void addSong(Song song){
+        songsById.put(song.getId(), song);
+        songsByName.put(song.getName(), song);
+    }
 }
