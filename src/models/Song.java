@@ -54,4 +54,9 @@ public class Song {
     public void setLyrics(String lyrics) {
         this.lyrics = lyrics;
     }
+
+    @Override
+    public int compareTo(Song o) {
+        return Integer.compare(this.id, o.id);
+    }
 }
