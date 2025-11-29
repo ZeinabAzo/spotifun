@@ -41,4 +41,10 @@ public class SongList {
         songsById.put(song.getId(), song);
         songsByName.put(song.getName(), song);
     }
+
+    public void deleteSong(int id){
+        Song song = findById(id);
+        songsByName.remove(song.getName());
+        songsById.remove(id);
+    }
 }
