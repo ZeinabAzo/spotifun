@@ -1,5 +1,10 @@
 package operations;
 
+import containers.SparseSet;
+import models.Artist;
+
+import java.util.Arrays;
+
 public class ArtistOps {
     SparseSet<Artist> artists;
 
