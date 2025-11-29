@@ -28,4 +28,12 @@ public class SongList {
     public void setSongsByName(AVLTree<String, Song> songsByName) {
         this.songsByName = songsByName;
     }
+
+    public Song findByName(String name){
+        return songsByName.get(name);
+    }
+
+    public Song findById(int id){
+        return songsById.get(id);
+    }
 }
