@@ -1,6 +1,6 @@
 package models;
 
-public class Song {
+public class Song implements Comparable<Song> {
     private String name;
     private int id;
     private int releaseYear;
