@@ -55,13 +55,20 @@ public class SongList {
         return song.getLyrics().contains(word);
     }
 
-    public int countWord(int id, String word){
+    public int countWord(int id, String word) {
         String lyrics = songsById.get(id).getLyrics();
-        long count = Arrays.stream(lyrics.split("\\s+"))
-                .filter(s -> s.equalsIgnoreCase(word))
-                .count();
+        String target = word.toLowerCase();
+        String text = lyrics.toLowerCase();
 
-        return (int) count;
+        int count = 0;
+        int index = 0;
 
+        while ((index = text.indexOf(target, index)) != -1) {
+            count++;
+            index++; // move only 1 step for overlapping matches
+        }
+
+        return count;
     }
+
 }
