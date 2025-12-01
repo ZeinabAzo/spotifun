@@ -3,8 +3,6 @@ package holders;
 import containers.AVLTree;
 import models.Song;
 
-import java.util.Arrays;
-
 public class SongList {
     AVLTree<Integer, Song> songsById;
     AVLTree<String, Song> songsByName;
