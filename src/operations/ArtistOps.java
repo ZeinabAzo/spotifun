@@ -9,7 +9,12 @@ public class ArtistOps {
     SparseSet<Artist> artists;
 
     public ArtistOps(){
-        artists = new SparseSet<>(100, 100); //based on my project document.
+        artists = new SparseSet<Artist>(100, 100) {
+            @Override
+            protected int getId(Artist element) {
+                return element.getId();
+            }
+        };
     }
 
     public void add(Artist artist){
