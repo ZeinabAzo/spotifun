@@ -14,6 +14,10 @@ public class CommandHandler {
         commands.put("adds", this::addArtist);
     }
 
+    // _______________ Artist Ops _______________
+    private void addArtist(String[] args) {
+        ArtistCommand.add(args);
+    }
 
     public void start() {
         String command = scanner.nextLine();
