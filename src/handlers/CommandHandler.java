@@ -1,8 +1,9 @@
 package handlers;
 
-import java.util.Scanner;
+import java.util.*;
 
 public class CommandHandler {
+
     Scanner scanner;
     Map<String, Command> commands = new HashMap<>();
     ArtistCommand artistCommand = new ArtistCommand();
