@@ -1,6 +1,6 @@
 package handlers;
 
 public class ArtistCommand {
-    public static void add(String[] args) {
+    public void add(String[] args) {
     }
 }
