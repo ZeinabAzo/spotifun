@@ -15,11 +15,16 @@ public class CommandHandler {
 
     private void createCommands(Map<String, Command> commands) {
         commands.put("adds", this::addArtist);
+        commands.put("dels", this::removeArtist);
     }
 
     // _______________ Artist Ops _______________
     private void addArtist(String[] args) {
         artistCommand.add(args);
+    }
+
+    private void removeArtist(String[] args){
+        artistCommand.remove(args);
     }
 
     public void start() {
