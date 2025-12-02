@@ -7,6 +7,11 @@ public class CommandHandler {
 
     public CommandHandler(Scanner scanner) {
         this.scanner = scanner;
+        createCommands(commands);
+    }
+
+    private void createCommands(Map<String, Command> commands) {
+        commands.put("adds", this::addArtist);
     }
 
 
