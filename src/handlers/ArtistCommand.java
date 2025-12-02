@@ -11,10 +11,13 @@ public class ArtistCommand {
         int id = Integer.parseInt(args[1]);
         Artist artist = new Artist(name, id);
         artistOps.add(artist);
+        System.out.println("Artist: " + name + " with id: " + id + " has been successfully added.");
     }
 
     public void remove(String[] args) {
         int id = Integer.parseInt(args[0]);
+        String name = artistOps.find(id).getName();
         artistOps.delete(id);
+        System.out.println("Artist: " + name + " with id: " + id + " has been successfully removed.");
     }
 }
