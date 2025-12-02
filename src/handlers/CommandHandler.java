@@ -20,9 +20,10 @@ public class CommandHandler {
     }
 
     public void start() {
-        String command = scanner.nextLine();
-        while (!command.equals("stop")){
-            command = scanner.nextLine();
+        while (true) {
+            String command = scanner.nextLine().trim();
+            if (command.equals("stop")) break;
+
             handleCommand(command);
         }
     }
