@@ -4,6 +4,8 @@ import java.util.Scanner;
 
 public class CommandHandler {
     Scanner scanner;
+    Map<String, Command> commands = new HashMap<>();
+    ArtistCommand artistCommand = new ArtistCommand();
 
     public CommandHandler(Scanner scanner) {
         this.scanner = scanner;
