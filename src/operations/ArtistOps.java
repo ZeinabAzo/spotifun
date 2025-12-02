@@ -34,6 +34,11 @@ public class ArtistOps {
     }
 
     public void clear(){
-        artists = new SparseSet<>(100, 100);
+        artists = new SparseSet<Artist>(100, 100) {
+            @Override
+            protected int getId(Artist element) {
+                return element.getId();
+            }
+        };
     }
 }
