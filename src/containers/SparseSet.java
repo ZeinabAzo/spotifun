@@ -22,27 +22,29 @@ public class SparseSet<T> {
         return idx < size && dense[idx] != null && getId(dense[idx]) == id;
     }
 
-    public void add(T element) throws Exception {
+    public void add(T element) {
         int id = getId(element);
 
-        //handle exceptions
-        if (contains(id)) throw new Exception("Duplicate ID");
-        if (size >= capacity) throw new Exception("Capacity full");
+        if (contains(id))
+            throw new IllegalArgumentException("Duplicate ID");
 
-        //adding process
+        if (size >= capacity)
+            throw new IllegalStateException("Capacity full");
+
         dense[size] = element;
         sparse[id] = size;
         size++;
     }
 
-    public void remove(int id) throws Exception {
-        if (!contains(id)) throw new Exception("ID not found");
+    public void remove(int id) {
+        if (!contains(id))
+            throw new IllegalArgumentException("ID not found");
 
         int idx = sparse[id];
-        //to remove we switch places between last element and the id's element
+        // to remove we switch places between last element and the id's element
         T last = dense[size - 1];
 
-        //swapping
+        // swapping
         dense[idx] = last;
         sparse[getId(last)] = idx;
 

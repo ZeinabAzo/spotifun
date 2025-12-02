@@ -19,7 +19,7 @@ public class CommandHandler {
 
     // _______________ Artist Ops _______________
     private void addArtist(String[] args) {
-        ArtistCommand.add(args);
+        artistCommand.add(args);
     }
 
     public void start() {

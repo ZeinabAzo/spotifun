@@ -12,11 +12,11 @@ public class ArtistOps {
         artists = new SparseSet<>(100, 100); //based on my project document.
     }
 
-    public void add(Artist artist) throws Exception {
+    public void add(Artist artist){
         artists.add(artist);
     }
 
-    public void delete(int id) throws Exception {
+    public void delete(int id){
         artists.remove(id);
     }
 
