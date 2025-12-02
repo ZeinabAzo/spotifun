@@ -24,6 +24,15 @@ public class CommandHandler {
     }
 
     private void handleCommand(String command) {
-        //write commands one by one so you can check: DO NOT use a menu
+        String[] split = command.trim().split("\\s+");
+        String name = split[0];
+        String[] args = Arrays.copyOfRange(split, 1, split.length);
+
+        Command c = commands.get(name);
+        if (c != null) {
+            c.execute(args);
+        } else {
+            System.out.println("Unknown command");
+        }
     }
 }
