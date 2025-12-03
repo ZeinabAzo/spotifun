@@ -36,4 +36,24 @@ public class Artist {
     public void setId(int id) {
         this.id = id;
     }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+
+        var songs = songList.getAllSongs();
+        if (songs.isEmpty()) {
+            sb.append("No songs");
+        } else {
+            for (Song s : songs) {
+                sb.append(s.getName()).append(", ");
+            }
+            sb.setLength(sb.length() - 2);
+        }
+
+        return "Artist{id=" + id +
+                ", name='" + name + '\'' +
+                ", songs=[" + sb + "]}";
+    }
+
 }

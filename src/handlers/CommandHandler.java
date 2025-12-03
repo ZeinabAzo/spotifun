@@ -16,6 +16,7 @@ public class CommandHandler {
     private void createCommands(Map<String, Command> commands) {
         commands.put("adds", this::addArtist);
         commands.put("dels", this::removeArtist);
+        commands.put("finds", this::findArtist);
     }
 
     // _______________ Artist Ops _______________
@@ -25,6 +26,10 @@ public class CommandHandler {
 
     private void removeArtist(String[] args){
         artistCommand.remove(args);
+    }
+
+    private void findArtist(String[] args) {
+        artistCommand.find(args);
     }
 
     public void start() {

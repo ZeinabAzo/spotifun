@@ -1,5 +1,8 @@
 package containers;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class AVLTree<K extends Comparable<K>, V> {
 
     private class Node {
@@ -194,4 +197,20 @@ public class AVLTree<K extends Comparable<K>, V> {
         System.out.println(n.key + " => " + n.value);
         inOrder(n.right);
     }
+
+    //just to get things to print
+    public List<V> toListInOrder() {
+        List<V> list = new ArrayList<>();
+        collect(root, list);
+        return list;
+    }
+
+    //inorder listing so that everything is smaller -> greater
+    private void collect(Node n, List<V> list) {
+        if (n == null) return;
+        collect(n.left, list);
+        list.add(n.value);
+        collect(n.right, list);
+    }
+
 }

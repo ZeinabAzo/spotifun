@@ -3,6 +3,9 @@ package holders;
 import containers.AVLTree;
 import models.Song;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SongList {
     AVLTree<Integer, Song> songsById;
     AVLTree<String, Song> songsByName;
@@ -68,5 +71,10 @@ public class SongList {
 
         return count;
     }
+
+    public List<Song> getAllSongs() {
+        return songsByName.toListInOrder();
+    }
+
 
 }

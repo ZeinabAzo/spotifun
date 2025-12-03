@@ -20,4 +20,11 @@ public class ArtistCommand {
         artistOps.delete(id);
         System.out.println("Artist: " + name + " with id: " + id + " has been successfully removed.");
     }
+
+    public void find(String[] args) {
+        Artist artist = artistOps.find(Integer.parseInt(args[0]));
+        System.out.println(artist.toString());
+    }
+
+
 }
