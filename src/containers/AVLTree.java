@@ -17,6 +17,11 @@ public class AVLTree<K extends Comparable<K>, V> {
         }
     }
 
+    //compute size
+    private int size(Node n) {
+        return n == null ? 0 : n.size;
+    }
+
     private Node root;
 
     // ----------------- Utility -----------------
