@@ -2,6 +2,7 @@ package operations;
 
 import containers.SparseSet;
 import models.Artist;
+import models.Song;
 
 import java.util.Arrays;
 
@@ -40,5 +41,9 @@ public class ArtistOps {
                 return element.getId();
             }
         };
+    }
+
+    public void findMusic(String musicName) {
+        //TODO: please do it in a O(log n) way
     }
 }

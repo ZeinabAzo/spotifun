@@ -34,4 +34,9 @@ public class ArtistCommand {
     public void clear() {
         artistOps.clear();
     }
+
+    public void findMusic(String[] strings) {
+        String musicName = strings[0];
+        artistOps.findMusic(musicName);
+    }
 }
