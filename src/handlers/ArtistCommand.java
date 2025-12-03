@@ -65,4 +65,11 @@ public class ArtistCommand {
             System.out.println("word not found :( ");
         }
     }
+
+    public void countWord(String[] strings) {
+        int artistId = Integer.parseInt(strings[0]);
+        int musicId = Integer.parseInt(strings[1]);
+        String word = strings[2];
+        int count = artistOps.countWord(artistId, musicId, word);
+        System.out.println("The word \"" + word + "\" appears " + count + " time" + (count != 1 ? "s" : "") + " in the lyrics.");}
 }

@@ -53,4 +53,8 @@ public class ArtistOps {
     public boolean searchWord(int artistId, int musicId, String word) {
         return find(artistId).getSongList().contains(musicId, word);
     }
+
+    public int countWord(int artistId, int musicId, String word) {
+        return find(artistId).getSongList().countWord(musicId, word);
+    }
 }

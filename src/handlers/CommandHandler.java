@@ -23,6 +23,7 @@ public class CommandHandler {
         commands.put("findms", this::findMusic);
         commands.put("addms", this::addMusic);
         commands.put("searchw", this::searchWord);
+        commands.put("countw", this::countWord);
     }
 
     // _______________ Artist Ops _______________
@@ -56,6 +57,10 @@ public class CommandHandler {
 
     private void searchWord(String[] strings) {
         artistCommand.searchWord(strings);
+    }
+
+    private void countWord(String[] strings) {
+        artistCommand.countWord(strings);
     }
 
     //______________________________________________
