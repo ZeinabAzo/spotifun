@@ -21,6 +21,7 @@ public class CommandHandler {
         commands.put("prints", this::printArtists);
         commands.put("cls", this::clearArtists);
         commands.put("findms", this::findMusic);
+        commands.put("addms", this::addMusic);
     }
 
     // _______________ Artist Ops _______________
@@ -46,6 +47,10 @@ public class CommandHandler {
 
     private void findMusic(String[] strings) {
         artistCommand.findMusic(strings);
+    }
+
+    private void addMusic(String[] strings) {
+        artistCommand.addMusic(strings);
     }
 
     //______________________________________________

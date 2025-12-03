@@ -40,7 +40,8 @@ public class SongList {
         return songsById.get(id);
     }
 
-    public void addSong(Song song){
+    public void addSong(String name, int year, int rating, String lyrics){
+        Song song = new Song(name, songsById.getLength()+1 , year, rating, lyrics);
         songsById.put(song.getId(), song);
         songsByName.put(song.getName(), song);
     }

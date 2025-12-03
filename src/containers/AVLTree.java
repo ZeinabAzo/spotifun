@@ -10,6 +10,7 @@ public class AVLTree<K extends Comparable<K>, V> {
         V value;
         Node left, right;
         int height = 1;
+        int size = 1;
 
         Node(K key, V value) {
             this.key = key;
@@ -21,6 +22,11 @@ public class AVLTree<K extends Comparable<K>, V> {
     private int size(Node n) {
         return n == null ? 0 : n.size;
     }
+
+    public int getLength() {
+        return size(root);
+    }
+
 
     private Node root;
 
@@ -83,6 +89,8 @@ public class AVLTree<K extends Comparable<K>, V> {
         }
 
         node.height = 1 + Math.max(height(node.left), height(node.right));
+        node.size = 1 + size(node.left) + size(node.right);
+
         int bf = balance(node);
 
         // Left Left
