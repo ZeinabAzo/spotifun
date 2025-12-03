@@ -9,6 +9,7 @@ import java.util.List;
 public class SongList {
     AVLTree<Integer, Song> songsById;
     AVLTree<String, Song> songsByName;
+    private int nextId = 1; // start from 1
 
 
     public SongList(){
@@ -40,8 +41,10 @@ public class SongList {
         return songsById.get(id);
     }
 
-    public void addSong(String name, int year, int rating, String lyrics){
-        Song song = new Song(name, songsById.getLength()+1 , year, rating, lyrics);
+    public void addSong(String name, int year, int rating, String lyrics) {
+        int id = nextId++; // assign current ID, then increment
+        Song song = new Song(name, id, year, rating, lyrics);
+
         songsById.put(song.getId(), song);
         songsByName.put(song.getName(), song);
     }
