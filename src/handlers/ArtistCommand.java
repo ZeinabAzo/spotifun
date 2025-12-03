@@ -27,4 +27,7 @@ public class ArtistCommand {
     }
 
 
+    public void printAll(String[] args) {
+        artistOps.printAll();
+    }
 }
