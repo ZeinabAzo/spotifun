@@ -53,6 +53,7 @@ public class SongList {
         Song song = findById(id);
         songsByName.remove(song.getName());
         songsById.remove(id);
+        nextId = 1;
     }
 
     public boolean contains(int id, String word){
