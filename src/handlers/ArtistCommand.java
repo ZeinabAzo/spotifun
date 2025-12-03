@@ -53,4 +53,16 @@ public class ArtistCommand {
         artistOps.addMusic(artistId, musicName, year, rating, result);
         System.out.println("Done ;) ");
     }
+
+    public void searchWord(String[] strings) {
+        int artistId = Integer.parseInt(strings[0]);
+        int musicId = Integer.parseInt(strings[1]);
+        String word = strings[2];
+        boolean result = artistOps.searchWord(artistId, musicId, word);
+        if(result){
+            System.out.println("This word -> " + word + " exists in this songs lyrics");
+        }else{
+            System.out.println("word not found :( ");
+        }
+    }
 }

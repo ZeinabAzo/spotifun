@@ -49,4 +49,8 @@ public class ArtistOps {
     public void addMusic(int artistId, String musicName, int year, int rating, String result) {
         find(artistId).getSongList().addSong(musicName, year, rating, result);
     }
+
+    public boolean searchWord(int artistId, int musicId, String word) {
+        return find(artistId).getSongList().contains(musicId, word);
+    }
 }
