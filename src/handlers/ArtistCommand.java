@@ -78,4 +78,8 @@ public class ArtistCommand {
         String word = strings[2];
         int count = artistOps.countWord(artistId, musicId, word);
         System.out.println("The word \"" + word + "\" appears " + count + " time" + (count != 1 ? "s" : "") + " in the lyrics.");}
+
+    public void deleteSong(String[] strings) {
+        artistOps.deleteSong(Integer.parseInt(strings[1]), Integer.parseInt(strings[0]));
+    }
 }

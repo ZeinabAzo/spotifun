@@ -41,12 +41,13 @@ public class SongList {
         return songsById.get(id);
     }
 
-    public void addSong(String name, int year, int rating, String lyrics) {
+    public Song addSong(String name, int year, int rating, String lyrics) {
         int id = nextId++; // assign current ID, then increment
         Song song = new Song(name, id, year, rating, lyrics);
 
         songsById.put(song.getId(), song);
         songsByName.put(song.getName(), song);
+        return song;
     }
 
     public void deleteSong(int id){

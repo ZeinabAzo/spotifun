@@ -1,5 +1,6 @@
 package operations;
 
+import models.Artist;
 import models.PlayList;
 import models.Song;
 
@@ -43,6 +44,19 @@ public class PlayListOps {
 
     public String showPlaylist(int playlistId) {
         return playlists.get(playlistId).toString();
+
+    }
+
+    public void deleteMusic(int artistId, int musicId) {
+        Song song = songOps.getSong(musicId);
+        Artist artist = songOps.getSongArtistMap().get(song);
+        if(artist == null ||
+                artist.getId() != artistId ){
+            return;
+        }
+        for (PlayList playList: playlists.values()){
+            playList.deleteSong(song);
+        }
 
     }
 }

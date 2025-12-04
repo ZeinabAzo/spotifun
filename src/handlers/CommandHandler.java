@@ -38,6 +38,7 @@ public class CommandHandler {
         commands.put("cls", this::clearArtists);
         commands.put("findms", this::findMusic);
         commands.put("addms", this::addMusic);
+        commands.put("delm", this::deleteSong);
         commands.put("searchw", this::searchWord);
         commands.put("countw", this::countWord);
 
@@ -85,6 +86,12 @@ public class CommandHandler {
         artistCommand.addMusic(strings);
     }
 
+    private void deleteSong(String[] strings) {
+        artistCommand.deleteSong(strings);
+        historyCommand.deleteSong(strings);
+        playListCommand.deleteMusic(strings);
+    }
+
     private void searchWord(String[] strings) {
         artistCommand.searchWord(strings);
     }
@@ -93,6 +100,7 @@ public class CommandHandler {
         artistCommand.countWord(strings);
     }
     //______________________________________________
+
     //_______________PLAYLIST_______________________
     private void addPlaylist(String[] strings) {
         playListCommand.add(strings);
@@ -118,8 +126,8 @@ public class CommandHandler {
         playListCommand.showPlaylist(strings);
     }
     //________________________________________________
-    //_______________History__________________________
 
+    //_______________History__________________________
     private void playMusic(String[] strings) {
         historyCommand.playMusic(strings);
     }
@@ -127,6 +135,9 @@ public class CommandHandler {
     private void undo(String[] strings) {
         historyCommand.undoPlay();
     }
+    //____________________________________________
+
+
 
     public void start() {
         while (true) {

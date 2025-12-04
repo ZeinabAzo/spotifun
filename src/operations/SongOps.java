@@ -37,4 +37,12 @@ public class SongOps {
     public Song findMusic(String name){
         return songNameMap.get(name);
     }
+
+    public void removeSong(Song song) {
+        if(songArtistMap.containsKey(song)) {
+            songArtistMap.remove(song);
+            songNameMap.remove(song.getName());
+            songIdMap.remove(song.getId());
+        }
+    }
 }

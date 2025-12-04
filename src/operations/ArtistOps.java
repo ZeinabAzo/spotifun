@@ -50,7 +50,8 @@ public class ArtistOps {
     }
 
     public void addMusic(int artistId, String musicName, int year, int rating, String result) {
-        find(artistId).getSongList().addSong(musicName, year, rating, result);
+        Song song = find(artistId).getSongList().addSong(musicName, year, rating, result);
+        songOps.addSong(song, find(artistId));
     }
 
     public boolean searchWord(int artistId, int musicId, String word) {
@@ -59,5 +60,11 @@ public class ArtistOps {
 
     public int countWord(int artistId, int musicId, String word) {
         return find(artistId).getSongList().countWord(musicId, word);
+    }
+
+    public void deleteSong(int musicId, int artistId) {
+        Song song = songOps.getSong(musicId);
+        songOps.removeSong(song);
+        artists.get(artistId).getSongList().deleteSong(musicId);
     }
 }
