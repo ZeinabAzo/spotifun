@@ -15,6 +15,7 @@ public class CommandHandler {
     private Map<String, Command> commands = new HashMap<>();
     private ArtistCommand artistCommand;
     private PlayListCommand playListCommand;
+    private HistoryCommand historyCommand;
 
     public CommandHandler(Scanner scanner, SongOps songOps, ArtistOps artistOps, PlayListOps playListOps) {
         this.artistOps = artistOps;
@@ -24,6 +25,7 @@ public class CommandHandler {
         createCommands(commands);
         artistCommand = new ArtistCommand(artistOps);
         playListCommand = new PlayListCommand(playListOps);
+        historyCommand = new HistoryCommand(songOps);
 
     }
 
@@ -47,6 +49,10 @@ public class CommandHandler {
         commands.put("searchmp", this::searchMP);
         commands.put("delmp", this::deleteMusic);
         commands.put("showp", this::showPlaylist);
+
+
+        //_________ 3. HISTORY ______________\\
+        commands.put("playm", this::playMusic);
     }
 
     // _______________ Artist Ops _______________
@@ -111,6 +117,11 @@ public class CommandHandler {
         playListCommand.showPlaylist(strings);
     }
     //________________________________________________
+    //_______________History__________________________
+
+    private void playMusic(String[] strings) {
+        historyCommand.playMusic(strings);
+    }
 
     public void start() {
         while (true) {

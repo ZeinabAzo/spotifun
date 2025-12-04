@@ -12,7 +12,6 @@ public class Stack<T> {
         this.top = -1;
     }
 
-    // Push (add to top)
     public void push(T value) {
         if (isFull()) {
             System.out.println("Stack is full! Cannot push " + value);
@@ -21,7 +20,6 @@ public class Stack<T> {
         stack[++top] = value;
     }
 
-    // Pop (remove from top)
     @SuppressWarnings("unchecked")
     public T pop() {
         if (isEmpty()) {
@@ -31,7 +29,7 @@ public class Stack<T> {
         return (T) stack[top--];
     }
 
-    // Peek (view top without removing)
+    //(view top without removing)
     @SuppressWarnings("unchecked")
     public T peek() {
         if (isEmpty()) {
