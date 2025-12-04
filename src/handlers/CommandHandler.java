@@ -14,6 +14,7 @@ public class CommandHandler {
     private  Scanner scanner;
     private Map<String, Command> commands = new HashMap<>();
     private ArtistCommand artistCommand;
+    private PlayListCommand playListCommand;
 
     public CommandHandler(Scanner scanner, SongOps songOps, ArtistOps artistOps, PlayListOps playListOps) {
         this.artistOps = artistOps;
@@ -22,6 +23,8 @@ public class CommandHandler {
         this.playListOps = playListOps;
         createCommands(commands);
         artistCommand = new ArtistCommand(artistOps);
+        playListCommand = new PlayListCommand(playListOps);
+
     }
 
     private void createCommands(Map<String, Command> commands) {
@@ -38,9 +41,8 @@ public class CommandHandler {
 
 
         //__________ 2. PLAYLIST __________\\
-
+        commands.put("addp", this::addPlaylist);
     }
-
     // _______________ Artist Ops _______________
     private void addArtist(String[] args) {
         artistCommand.add(args);
@@ -78,6 +80,10 @@ public class CommandHandler {
         artistCommand.countWord(strings);
     }
     //______________________________________________
+    //_______________PLAYLIST_______________________
+    private void addPlaylist(String[] strings) {
+        playListCommand.add(strings);
+    }
 
     public void start() {
         while (true) {
