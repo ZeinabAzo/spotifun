@@ -52,15 +52,35 @@ public class PlayList {
 
             if (current.equals(target)) {
                 found = current; // song found
-            } else {
-                newQueue.enqueue(current); // keep the song
             }
+            newQueue.enqueue(current);
         }
 
         // replace old queue with filtered one
         songQueue = newQueue;
 
         return found;
+    }
+
+    public void deleteSong(Song target) {
+        if(songQueue == null){
+            return;
+        }
+
+        Queue<Song> newQueue = new Queue<>(songQueue.getCapacity());
+
+        while (!songQueue.isEmpty()) {
+            Song current = songQueue.dequeue();
+
+            if (!current.equals(target)) {
+                newQueue.enqueue(current);
+            }
+            newQueue.enqueue(current);
+        }
+
+        // replace old queue with filtered one
+        songQueue = newQueue;
+
     }
 
 

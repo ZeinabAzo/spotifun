@@ -34,4 +34,10 @@ public class PlayListOps {
         Song song = songOps.getSong(musicId);
         return playlists.get(playlistId).findSong(song);
     }
+
+    public void deleteSong(int playlistId, int musicId) {
+        Song song = songOps.getSong(musicId);
+        PlayList playList = playlists.get(playlistId);
+        playlists.get(playlistId).deleteSong(song);
+    }
 }
