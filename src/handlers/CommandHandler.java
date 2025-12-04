@@ -44,6 +44,7 @@ public class CommandHandler {
         commands.put("addp", this::addPlaylist);
         commands.put("addms", this::addMusicPL);
         commands.put("searchp", this::searchPl);
+        commands.put("searchmp", this::searchMP);
     }
 
     // _______________ Artist Ops _______________
@@ -94,6 +95,10 @@ public class CommandHandler {
 
     private void searchPl(String[] strings) {
         playListCommand.searchPl(strings);
+    }
+
+    private void searchMP(String[] strings) {
+        playListCommand.searchMP(strings);
     }
     //________________________________________________
 

@@ -69,4 +69,8 @@ public class Queue<T> {
         return sb.toString().trim();
     }
 
+    public int getCapacity(){
+        return this.capacity;
+    }
+
 }

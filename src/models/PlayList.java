@@ -41,6 +41,29 @@ public class PlayList {
         songQueue.enqueue(song);
     }
 
+    public Song findSong(Song target) {
+        if (songQueue.isEmpty()) return null;
+
+        Queue<Song> newQueue = new Queue<>(songQueue.getCapacity()); // same size
+        Song found = null;
+
+        while (!songQueue.isEmpty()) {
+            Song current = songQueue.dequeue();
+
+            if (current.equals(target)) {
+                found = current; // song found
+            } else {
+                newQueue.enqueue(current); // keep the song
+            }
+        }
+
+        // replace old queue with filtered one
+        songQueue = newQueue;
+
+        return found;
+    }
+
+
     @Override
     public String toString(){
         return "Playlist id: " + this.id + "\n" +

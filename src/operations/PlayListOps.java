@@ -29,4 +29,9 @@ public class PlayListOps {
     public PlayList getP(int i) {
         return playlists.get(i);
     }
+
+    public Song getSong(int playlistId, int musicId) {
+        Song song = songOps.getSong(musicId);
+        return playlists.get(playlistId).findSong(song);
+    }
 }

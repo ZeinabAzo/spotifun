@@ -1,6 +1,7 @@
 package handlers;
 
 import models.PlayList;
+import models.Song;
 import operations.PlayListOps;
 
 public class PlayListCommand {
@@ -25,6 +26,13 @@ public class PlayListCommand {
 
     public void searchPl(String[] strings) {
         PlayList playList = playListOps.getP(Integer.parseInt(strings[0]));
-        System.out.println(playList);
+        System.out.println(playList.toString());
+    }
+
+    public void searchMP(String[] strings) {
+        int musicId = Integer.parseInt(strings[1]);
+        int playlistId = Integer.parseInt(strings[0]);
+        Song song = playListOps.getSong(playlistId, musicId);
+        System.out.println(song.toString());
     }
 }
