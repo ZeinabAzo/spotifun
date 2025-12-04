@@ -59,4 +59,14 @@ public class Song implements Comparable<Song> {
     public int compareTo(Song o) {
         return Integer.compare(this.id, o.id);
     }
+    @Override
+    public String toString() {
+        return  "----- Song Info -----\n" +
+                "Name: " + name + "\n" +
+                "ID: " + id + "\n" +
+                "Release Year: " + releaseYear + "\n" +
+                "Rating: " + rating + "\n" +
+                "Lyrics: " + lyrics + "\n";
+    }
+A
 }
