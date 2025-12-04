@@ -40,4 +40,11 @@ public class PlayList {
     public void addMusic(Song song) {
         songQueue.enqueue(song);
     }
+
+    @Override
+    public String toString(){
+        return "Playlist id: " + this.id + "\n" +
+                "PlayList name: " + this.name + "\n" +
+                this.songQueue.toString();
+    }
 }

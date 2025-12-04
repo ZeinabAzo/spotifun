@@ -1,5 +1,6 @@
 package handlers;
 
+import models.PlayList;
 import operations.PlayListOps;
 
 public class PlayListCommand {
@@ -20,5 +21,10 @@ public class PlayListCommand {
         int playlistId = Integer.parseInt(strings[1]);
         playListOps.addMusic(musicId, playlistId);
         System.out.println("Added");
+    }
+
+    public void searchPl(String[] strings) {
+        PlayList playList = playListOps.getP(Integer.parseInt(strings[0]));
+        System.out.println(playList);
     }
 }

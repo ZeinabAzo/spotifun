@@ -25,4 +25,8 @@ public class PlayListOps {
         PlayList playList = playlists.get(playlistId);
         playList.addMusic(song);
     }
+
+    public PlayList getP(int i) {
+        return playlists.get(i);
+    }
 }

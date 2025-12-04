@@ -55,15 +55,18 @@ public class Queue<T> {
         return size == 0;
     }
 
-    public void display() {
+    @Override
+    public String toString() {
         if (isEmpty()) {
-            System.out.println("Queue is empty.");
-            return;
+            return "Queue is empty.";
         }
-        System.out.print("Queue: ");
+
+        StringBuilder sb = new StringBuilder("Queue: ");
         for (int i = front; i <= rear; i++) {
-            System.out.print(queue[i] + " ");
+            sb.append(queue[i]).append(" ");
         }
-        System.out.println();
+
+        return sb.toString().trim();
     }
+
 }
