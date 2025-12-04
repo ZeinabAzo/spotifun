@@ -68,5 +68,5 @@ public class Song implements Comparable<Song> {
                 "Rating: " + rating + "\n" +
                 "Lyrics: " + lyrics + "\n";
     }
-A
+
 }

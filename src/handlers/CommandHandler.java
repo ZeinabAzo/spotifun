@@ -1,16 +1,27 @@
 package handlers;
 
+import operations.ArtistOps;
+import operations.PlayListOps;
+import operations.SongOps;
+
 import java.util.*;
 
 public class CommandHandler {
+    private SongOps songOps;
+    private ArtistOps artistOps;
+    private PlayListOps playListOps;
 
-    Scanner scanner;
-    Map<String, Command> commands = new HashMap<>();
-    ArtistCommand artistCommand = new ArtistCommand();
+    private  Scanner scanner;
+    private Map<String, Command> commands = new HashMap<>();
+    private ArtistCommand artistCommand;
 
-    public CommandHandler(Scanner scanner) {
+    public CommandHandler(Scanner scanner, SongOps songOps, ArtistOps artistOps, PlayListOps playListOps) {
+        this.artistOps = artistOps;
         this.scanner = scanner;
+        this.songOps =songOps;
+        this.playListOps = playListOps;
         createCommands(commands);
+        artistCommand = new ArtistCommand(artistOps);
     }
 
     private void createCommands(Map<String, Command> commands) {
@@ -24,6 +35,10 @@ public class CommandHandler {
         commands.put("addms", this::addMusic);
         commands.put("searchw", this::searchWord);
         commands.put("countw", this::countWord);
+
+
+        //__________ 2. PLAYLIST __________\\
+
     }
 
     // _______________ Artist Ops _______________
@@ -62,7 +77,6 @@ public class CommandHandler {
     private void countWord(String[] strings) {
         artistCommand.countWord(strings);
     }
-
     //______________________________________________
 
     public void start() {

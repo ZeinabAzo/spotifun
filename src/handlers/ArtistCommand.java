@@ -3,11 +3,16 @@ package handlers;
 import models.Artist;
 import models.Song;
 import operations.ArtistOps;
+import operations.SongOps;
 
 import java.util.Arrays;
 
 public class ArtistCommand {
-    private ArtistOps artistOps = new ArtistOps();
+    private ArtistOps artistOps;
+
+    public ArtistCommand(ArtistOps artistOps){
+        this.artistOps = artistOps;
+    }
 
     public void add(String[] args) {
         String name = args[0];
@@ -40,7 +45,8 @@ public class ArtistCommand {
 
     public void findMusic(String[] strings) {
         String musicName = strings[0];
-        artistOps.findMusic(musicName);
+        Song song = artistOps.findMusic(musicName);
+        System.out.println(song.toString());
     }
 
     public void addMusic(String[] strings) {

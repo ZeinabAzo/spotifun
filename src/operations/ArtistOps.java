@@ -2,19 +2,22 @@ package operations;
 
 import containers.SparseSet;
 import models.Artist;
+import models.Song;
 
 import java.util.Arrays;
 
 public class ArtistOps {
     SparseSet<Artist> artists;
+    SongOps songOps;
 
-    public ArtistOps(){
+    public ArtistOps(SongOps songOps){
         artists = new SparseSet<Artist>(100, 100) {
             @Override
             protected int getId(Artist element) {
                 return element.getId();
             }
         };
+        this.songOps = songOps;
     }
 
     public void add(Artist artist){
@@ -42,8 +45,8 @@ public class ArtistOps {
         };
     }
 
-    public void findMusic(String musicName) {
-        //TODO: please do it in a O(log n) way
+    public Song findMusic(String musicName) {
+        return songOps.findMusic(musicName);
     }
 
     public void addMusic(int artistId, String musicName, int year, int rating, String result) {
