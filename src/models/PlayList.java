@@ -1,24 +1,16 @@
 package models;
 
-import holders.SongList;
+import containers.Queue;
 
 public class PlayList {
-    private SongList list;
+    private Queue songQueue;
     private String name;
     private int id;
 
     public PlayList(String name, int id) {
-        this.list = new SongList();
+        this.songQueue = new Queue(1000);
         this.name = name;
         this.id = id;
-    }
-
-    public SongList getList() {
-        return list;
-    }
-
-    public void setList(SongList list) {
-        this.list = list;
     }
 
     public String getName() {
@@ -35,5 +27,13 @@ public class PlayList {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public Queue getSongQueue() {
+        return songQueue;
+    }
+
+    public void setSongQueue(Queue songQueue) {
+        this.songQueue = songQueue;
     }
 }
