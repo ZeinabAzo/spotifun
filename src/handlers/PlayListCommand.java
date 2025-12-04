@@ -41,4 +41,10 @@ public class PlayListCommand {
         int playlistId = Integer.parseInt(strings[0]);
         playListOps.deleteSong(playlistId, musicId);
     }
+
+    public void showPlaylist(String[] strings) {
+        int playlistId = Integer.parseInt(strings[0]);
+        String string = playListOps.showPlaylist(playlistId);
+        System.out.println(string);
+    }
 }

@@ -46,6 +46,7 @@ public class CommandHandler {
         commands.put("searchp", this::searchPl);
         commands.put("searchmp", this::searchMP);
         commands.put("delmp", this::deleteMusic);
+        commands.put("showp", this::showPlaylist);
     }
 
     // _______________ Artist Ops _______________
@@ -104,6 +105,10 @@ public class CommandHandler {
 
     private void deleteMusic(String[] strings) {
         playListCommand.deleteSong(strings);
+    }
+
+    private void showPlaylist(String[] strings) {
+        playListCommand.showPlaylist(strings);
     }
     //________________________________________________
 

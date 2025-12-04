@@ -40,4 +40,9 @@ public class PlayListOps {
         PlayList playList = playlists.get(playlistId);
         playlists.get(playlistId).deleteSong(song);
     }
+
+    public String showPlaylist(int playlistId) {
+        return playlists.get(playlistId).toString();
+
+    }
 }
