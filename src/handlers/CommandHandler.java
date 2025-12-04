@@ -53,6 +53,7 @@ public class CommandHandler {
 
         //_________ 3. HISTORY ______________\\
         commands.put("playm", this::playMusic);
+        commands.put("undo_playm", this::undo);
     }
 
     // _______________ Artist Ops _______________
@@ -121,6 +122,10 @@ public class CommandHandler {
 
     private void playMusic(String[] strings) {
         historyCommand.playMusic(strings);
+    }
+
+    private void undo(String[] strings) {
+        historyCommand.undoPlay();
     }
 
     public void start() {

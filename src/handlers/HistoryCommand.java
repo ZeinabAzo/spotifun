@@ -18,4 +18,9 @@ public class HistoryCommand {
         Song song = songOps.getSong(musicId);
         history.getHistory().push(song);
     }
+
+    public void undoPlay() {
+        Song song = history.getHistory().pop();
+        System.out.println("This song was popped -> "+song.toString());
+    }
 }
