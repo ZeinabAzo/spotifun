@@ -14,4 +14,11 @@ public class PlayListCommand {
         String name = strings[1];
         playListOps.add(id, name);
     }
+
+    public void addMusic(String[] strings) {
+        int musicId = Integer.parseInt(strings[0]);
+        int playlistId = Integer.parseInt(strings[1]);
+        playListOps.addMusic(musicId, playlistId);
+        System.out.println("Added");
+    }
 }

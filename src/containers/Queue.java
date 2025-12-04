@@ -1,8 +1,8 @@
 package containers;
 
-public class Queue {
+public class Queue<T> {
 
-    private int[] queue;
+    private Object[] queue;   // cannot directly create T[]
     private int front;
     private int rear;
     private int size;
@@ -10,13 +10,13 @@ public class Queue {
 
     public Queue(int capacity) {
         this.capacity = capacity;
-        queue = new int[capacity];
+        queue = new Object[capacity];
         front = 0;
         rear = -1;
         size = 0;
     }
 
-    public void enqueue(int value) {
+    public void enqueue(T value) {
         if (isFull()) {
             System.out.println("Queue is full! Cannot add " + value);
             return;
@@ -26,23 +26,25 @@ public class Queue {
         size++;
     }
 
-    public int dequeue() {
+    @SuppressWarnings("unchecked")
+    public T dequeue() {
         if (isEmpty()) {
             System.out.println("Queue is empty! Nothing to remove.");
-            return -1;
+            return null;
         }
-        int removed = queue[front];
+        T removed = (T) queue[front];
         front++;
         size--;
         return removed;
     }
 
-    public int peek() {
+    @SuppressWarnings("unchecked")
+    public T peek() {
         if (isEmpty()) {
             System.out.println("Queue is empty!");
-            return -1;
+            return null;
         }
-        return queue[front];
+        return (T) queue[front];
     }
 
     public boolean isFull() {

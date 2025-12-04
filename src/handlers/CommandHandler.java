@@ -42,7 +42,9 @@ public class CommandHandler {
 
         //__________ 2. PLAYLIST __________\\
         commands.put("addp", this::addPlaylist);
+        commands.put("addms", this::addMusicPL);
     }
+
     // _______________ Artist Ops _______________
     private void addArtist(String[] args) {
         artistCommand.add(args);
@@ -83,6 +85,10 @@ public class CommandHandler {
     //_______________PLAYLIST_______________________
     private void addPlaylist(String[] strings) {
         playListCommand.add(strings);
+    }
+
+    private void addMusicPL(String[] strings) {
+        playListCommand.addMusic(strings);
     }
 
     public void start() {

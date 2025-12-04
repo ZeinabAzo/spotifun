@@ -3,12 +3,12 @@ package models;
 import containers.Queue;
 
 public class PlayList {
-    private Queue songQueue;
+    private Queue<Song> songQueue;
     private String name;
     private int id;
 
     public PlayList(String name, int id) {
-        this.songQueue = new Queue(1000);
+        this.songQueue = new Queue<>(1000);
         this.name = name;
         this.id = id;
     }
@@ -35,5 +35,9 @@ public class PlayList {
 
     public void setSongQueue(Queue songQueue) {
         this.songQueue = songQueue;
+    }
+
+    public void addMusic(Song song) {
+        songQueue.enqueue(song);
     }
 }
