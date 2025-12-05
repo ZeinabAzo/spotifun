@@ -1,5 +1,6 @@
 package handlers;
 
+import models.Song;
 import operations.ArtistOps;
 import operations.PlayListOps;
 import operations.SongOps;
@@ -55,6 +56,10 @@ public class CommandHandler {
         //_________ 3. HISTORY ______________\\
         commands.put("playm", this::playMusic);
         commands.put("undo_playm", this::undo);
+
+        //__________ 4. MIN-MAX _______________\\
+        commands.put("get_max_rated", this::getMax);
+        commands.put("get_min_rated", this::getMin);
     }
 
     // _______________ Artist Ops _______________
@@ -136,6 +141,14 @@ public class CommandHandler {
         historyCommand.undoPlay();
     }
     //____________________________________________
+
+    private void getMin(String[] strings) {
+        System.out.println(songOps.getMin().toString());
+    }
+
+    private void getMax(String[] strings) {
+        System.out.println(songOps.getMax().toString());
+    }
 
 
 

@@ -1,8 +1,10 @@
 package operations;
 
+import containers.MinMaxHeap;
 import models.Artist;
 import models.Song;
 
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -11,7 +13,14 @@ public class SongOps {
     private Map<Song, Artist> songArtistMap = new HashMap<>();
     private Map<String, Song> songNameMap = new HashMap<>();
     private Map<Integer, Song> songIdMap = new HashMap<>();
+    Comparator<Song> byRating;
+    private MinMaxHeap<Song> ratings;
 
+
+    public SongOps(){
+        byRating = (a, b) -> Double.compare(a.getRating(), b.getRating());
+        ratings = new MinMaxHeap<>(byRating);
+    }
 
 
     public Map<Song, Artist> getSongArtistMap() {
@@ -27,6 +36,7 @@ public class SongOps {
             songArtistMap.put(song, artist);
             songNameMap.put(song.getName(), song);
             songIdMap.put(song.getId(), song);
+            ratings.insert(song);
         }
     }
 
@@ -43,6 +53,15 @@ public class SongOps {
             songArtistMap.remove(song);
             songNameMap.remove(song.getName());
             songIdMap.remove(song.getId());
+            ratings.delete(song);
         }
+    }
+
+    public Song getMax(){
+        return ratings.getMax();
+    }
+
+    public Song getMin(){
+        return ratings.getMin();
     }
 }
