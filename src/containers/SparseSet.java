@@ -71,4 +71,11 @@ public class SparseSet<T> {
     }
 
     public int size() { return size; }
+
+    public int getIdByValue(T value) {
+        int id = getId(value);
+        if (!contains(id)) return -1;
+        return id;
+    }
+
 }

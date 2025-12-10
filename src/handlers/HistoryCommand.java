@@ -19,6 +19,7 @@ public class HistoryCommand {
         int musicId = Integer.parseInt(strings[1]);
         Song song = songOps.getSong(musicId);
         history.getHistory().push(song);
+        System.out.println("Playing music: "+song.getName());
     }
 
     public void undoPlay() {

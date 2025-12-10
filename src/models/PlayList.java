@@ -75,7 +75,6 @@ public class PlayList {
             if (!current.equals(target)) {
                 newQueue.enqueue(current);
             }
-            newQueue.enqueue(current);
         }
 
         // replace old queue with filtered one

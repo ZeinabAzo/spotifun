@@ -33,13 +33,20 @@ public class PlayListOps {
 
     public Song getSong(int playlistId, int musicId) {
         Song song = songOps.getSong(musicId);
-        return playlists.get(playlistId).findSong(song);
+        PlayList playList = playlists.get(playlistId);
+        if(playList != null) {
+            return playList.findSong(song);
+        }else{
+            return null;
+        }
     }
 
     public void deleteSong(int playlistId, int musicId) {
         Song song = songOps.getSong(musicId);
         PlayList playList = playlists.get(playlistId);
-        playlists.get(playlistId).deleteSong(song);
+        if (playList!= null){
+            playList.deleteSong(song);
+        }
     }
 
     public String showPlaylist(int playlistId) {

@@ -15,6 +15,7 @@ public class SongOps {
     private Map<Integer, Song> songIdMap = new HashMap<>();
     Comparator<Song> byRating;
     private MinMaxHeap<Song> ratings;
+    private int nextId = 1;
 
 
     public SongOps(){
@@ -63,5 +64,10 @@ public class SongOps {
 
     public Song getMin(){
         return ratings.getMin();
+    }
+
+    public Song createSong(String musicName, int year, int rating, String result) {
+        int id = nextId++;
+        return new Song(musicName, id, year, rating, result);
     }
 }

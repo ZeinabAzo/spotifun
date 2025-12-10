@@ -46,7 +46,7 @@ public class CommandHandler {
 
         //__________ 2. PLAYLIST __________\\
         commands.put("addp", this::addPlaylist);
-        commands.put("addms", this::addMusicPL);
+        commands.put("addmp", this::addMusicPL);
         commands.put("searchp", this::searchPl);
         commands.put("searchmp", this::searchMP);
         commands.put("delmp", this::deleteMusic);
@@ -88,6 +88,22 @@ public class CommandHandler {
     }
 
     private void addMusic(String[] strings) {
+        List<String> list = new ArrayList<>();
+        Collections.addAll(list, strings);
+        while (true) {
+            String line = scanner.nextLine().trim();
+
+            if (line.equals("$end"))
+                break;
+
+            String[] parts = line.split("\\s+");
+            for (String p : parts) {
+                if (!p.isEmpty()) {
+                    list.add(p);
+                }
+            }
+        }
+        strings = list.toArray(new String[0]);
         artistCommand.addMusic(strings);
     }
 

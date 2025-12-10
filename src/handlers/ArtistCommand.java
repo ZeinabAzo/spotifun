@@ -15,8 +15,8 @@ public class ArtistCommand {
     }
 
     public void add(String[] args) {
-        String name = args[0];
-        int id = Integer.parseInt(args[1]);
+        String name = args[1];
+        int id = Integer.parseInt(args[0]);
         Artist artist = new Artist(name, id);
         artistOps.add(artist);
         System.out.println("Artist: " + name + " with id: " + id + " has been successfully added.");
@@ -31,7 +31,11 @@ public class ArtistCommand {
 
     public void find(String[] args) {
         Artist artist = artistOps.find(Integer.parseInt(args[0]));
-        System.out.println(artist.toString());
+        if(artist==null){
+            System.out.println("Not found");
+        }else {
+            System.out.println(artist.toString());
+        }
     }
 
 
@@ -46,7 +50,7 @@ public class ArtistCommand {
     public void findMusic(String[] strings) {
         String musicName = strings[0];
         Song song = artistOps.findMusic(musicName);
-        System.out.println(song.toString());
+        System.out.println(song == null ? "Song not found." : song.toString());
     }
 
     public void addMusic(String[] strings) {

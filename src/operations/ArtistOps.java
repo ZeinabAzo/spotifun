@@ -50,7 +50,8 @@ public class ArtistOps {
     }
 
     public void addMusic(int artistId, String musicName, int year, int rating, String result) {
-        Song song = find(artistId).getSongList().addSong(musicName, year, rating, result);
+        Song song = songOps.createSong(musicName, year, rating, result);
+        find(artistId).getSongList().addSong(song);
         songOps.addSong(song, find(artistId));
     }
 

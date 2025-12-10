@@ -1,86 +1,66 @@
 package holders;
 
-import containers.AVLTree;
 import models.Song;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class SongList {
-    AVLTree<Integer, Song> songsById;
-    AVLTree<String, Song> songsByName;
-    private int nextId = 1; // start from 1
 
+    private HashMap<Integer, Song> songsById;
+    private HashMap<String, Song> songsByName;
 
-    public SongList(){
-        songsById = new AVLTree<>();
-        songsByName = new AVLTree<>();
+    public SongList() {
+        songsById = new HashMap<>();
+        songsByName = new HashMap<>();
     }
 
-    public AVLTree<Integer, Song> getSongsById() {
-        return songsById;
-    }
-
-    public void setSongsById(AVLTree<Integer, Song> songsById) {
-        this.songsById = songsById;
-    }
-
-    public AVLTree<String, Song> getSongsByName() {
-        return songsByName;
-    }
-
-    public void setSongsByName(AVLTree<String, Song> songsByName) {
-        this.songsByName = songsByName;
-    }
-
-    public Song findByName(String name){
+    public Song findByName(String name) {
         return songsByName.get(name);
     }
 
-    public Song findById(int id){
+    public Song findById(int id) {
         return songsById.get(id);
     }
 
-    public Song addSong(String name, int year, int rating, String lyrics) {
-        int id = nextId++; // assign current ID, then increment
-        Song song = new Song(name, id, year, rating, lyrics);
-
+    public void addSong(Song song) {
         songsById.put(song.getId(), song);
         songsByName.put(song.getName(), song);
-        return song;
     }
 
-    public void deleteSong(int id){
-        Song song = findById(id);
-        songsByName.remove(song.getName());
-        songsById.remove(id);
-        nextId = 1;
+    public void deleteSong(int id) {
+        Song song = songsById.remove(id);
+        if (song != null) {
+            songsByName.remove(song.getName());
+        }
     }
 
-    public boolean contains(int id, String word){
+    public boolean contains(int id, String word) {
         Song song = songsById.get(id);
-        return song.getLyrics().contains(word);
+        return song != null && song.getLyrics().contains(word);
     }
 
     public int countWord(int id, String word) {
-        String lyrics = songsById.get(id).getLyrics();
+        Song song = songsById.get(id);
+        if (song == null) return 0;
+
+        String lyrics = song.getLyrics().toLowerCase();
         String target = word.toLowerCase();
-        String text = lyrics.toLowerCase();
 
         int count = 0;
-        int index = 0;
+        int index = lyrics.indexOf(target);
 
-        while ((index = text.indexOf(target, index)) != -1) {
+        while (index != -1) {
             count++;
-            index++; // move only 1 step for overlapping matches
+            index = lyrics.indexOf(target, index + 1); // allow overlaps
         }
 
         return count;
     }
 
     public List<Song> getAllSongs() {
-        return songsByName.toListInOrder();
+        // Sort alphabetically by name for consistent behavior
+        List<Song> list = new ArrayList<>(songsByName.values());
+        list.sort(Comparator.comparing(Song::getName));
+        return list;
     }
-
-
 }
