@@ -1,8 +1,25 @@
-# spotifun
-Project Structure
+# 🎵 Music Management System (Java)
 
-The project is organized into several modules. Each folder has a specific responsibility, and all data structures used in the project are implemented from scratch (no Java built-in structures such as ArrayList, HashMap, Stack, etc.).
+A command-line music management application written in **Java**, designed with a strong focus on **data structures**, **performance**, and **clean architecture**. All core data structures are implemented **from scratch**, without relying on Java’s built-in collections.
 
+---
+
+## 📌 Project Overview
+
+This project simulates a lightweight music platform where users can:
+
+* Manage artists and songs
+* Create and manipulate playlists
+* Track playback history with undo support
+* Retrieve highest- and lowest-rated songs efficiently
+
+The application follows a **modular design**, separating data storage, command handling, and business logic to ensure maintainability and clarity.
+
+---
+
+## 📂 Project Structure
+
+```
 src/
 │
 ├── containers/
@@ -33,17 +50,84 @@ src/
 │   └── PlayListOps      # Logic for playlist operations
 │
 └── Main.java            # Application entry point & CLI loop
+```
 
-🧩 Custom Data Structures Used
+---
 
-To meet the project’s requirements, several core data structures were implemented manually:
-SparseSet — for efficient artist indexing (O(1) add/remove/find)
-SongList — custom dynamic array for storing songs
-Stack — used for playback history and undo_playm
-Queue — used internally for command handling
-MinMaxHeap — used for retrieving highest/lowest-rated songs efficiently
+## 🧩 Custom Data Structures
 
-These structures ensure:
-No built-in data-structure libraries
-Full control over performance
-Optimized time/space complexity
+To meet the project requirements, **all core data structures were implemented manually**, without using Java collections such as `ArrayList`, `HashMap`, or `Stack`.
+
+| Data Structure | Purpose                                                |
+| -------------- | ------------------------------------------------------ |
+| **SparseSet**  | O(1) artist insertion, removal, and lookup             |
+| **SongList**   | Custom dynamic array for storing songs                 |
+| **Stack**      | Playback history tracking and undo functionality       |
+| **Queue**      | Internal command processing (FIFO)                     |
+| **MinMaxHeap** | Efficient retrieval of highest- and lowest-rated songs |
+
+These implementations provide:
+
+* Full control over memory and performance
+* Predictable time and space complexity
+* Deeper understanding of low-level data handling
+
+---
+
+## ⚙️ Architecture Overview
+
+The system is organized into clear layers:
+
+* **Models** — Core entities such as `Artist`, `Song`, and `PlayList`
+* **Containers / Holders** — Custom-built data structures
+* **Operations** — Business logic for managing entities
+* **Handlers** — Command parsing and routing
+* **Main** — Application entry point and CLI loop
+
+This separation of concerns makes the codebase easy to extend and test.
+
+---
+
+## ▶️ How to Run
+
+1. Compile the project:
+
+   ```bash
+   javac src/Main.java
+   ```
+
+2. Run the application:
+
+   ```bash
+   java src.Main
+   ```
+
+3. Interact with the CLI using supported commands.
+
+---
+
+## 🎯 Key Learning Outcomes
+
+* Implementing fundamental data structures from scratch
+* Designing modular Java applications
+* Managing time and space complexity
+* Building command-driven systems
+* Applying clean code and separation of concerns principles
+
+---
+
+## 📄 Notes
+
+* No Java collection framework classes are used
+* Designed for educational and academic purposes
+* Emphasis on correctness, performance, and clarity
+
+---
+
+## 👤 Author
+
+Developed as part of a data structures–focused Java project.
+
+---
+
+⭐ *Feel free to explore, review, and extend the project!*
